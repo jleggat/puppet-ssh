@@ -40,6 +40,16 @@ class ssh::params {
       $service_name = 'sshd.service'
       $sftp_server_path = '/usr/lib/ssh/sftp-server'
     }
+    darwin: {
+      $server_package_name = undef
+      $client_package_name = undef
+      $sshd_dir = '/var/private/etc'
+      $sshd_config = '/etc/sshd_config'
+      $ssh_config = '/etc/ssh_config'
+      $ssh_known_hosts = '/etc/ssh_known_hosts'
+      $service_name = 'com.openssh.sshd'
+      $sftp_server_path = '/usr/libexec/sftp-server'
+    }
     default: {
       case $::operatingsystem {
         gentoo: {
